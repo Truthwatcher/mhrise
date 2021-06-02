@@ -17,6 +17,7 @@ def parseini(file):
         "Resuscitate": int(config['Skills']['Resuscitate']),
         "Resentment": int(config['Skills']['Resentment']),
         "Dragonheart": int(config['Skills']['Dragonheart']),
+        "Level 2 slots": int(config['Skills']['Level 2 slots '])
     }
 
     weapon = {
@@ -116,5 +117,9 @@ if __name__ == "__main__":
     parser.add_argument('--file',
                         type=str,
                         help='the .ini file that is used to calculate the effective raw. default = weapon.ini',
+                        default='weapon.ini')
+    parser.add_argument('--optimize',
+                        type=str,
+                        help='argument that checks if extra skill slots in the build should be used to optimize dps (y/n). default = y',
                         default='weapon.ini')
     main(parser.parse_args())
