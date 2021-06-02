@@ -39,8 +39,6 @@ def parseini(file):
 
 
 def rawattack(skills, weapon):
-    # assumes powercharm and powertalon are used (adds 15 raw)
-
     Attack = 0
 
     # Attack Boost is applied first:
@@ -102,7 +100,7 @@ def affinitymod(skills, rawaffinity):
 
 
 def totalefr(skills, weapon):
-    return weapon["sharpness"] * rawattack(skills, weapon) * affinitymod(skills, weapon["Raw Affinity"])
+    return math.floor(weapon["sharpness"] * rawattack(skills, weapon) * affinitymod(skills, weapon["Raw Affinity"]))
 
 
 def main(args):
@@ -110,7 +108,6 @@ def main(args):
 
     print("The effective raw damage of the build is:")
     print(totalefr(skills, weapon))
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Tool for Calculating Effective Raw for Monster Hunter Rise')
