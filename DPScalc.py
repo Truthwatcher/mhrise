@@ -2,6 +2,27 @@ import math
 import configparser
 import argparse
 
+class skilltable:
+    skills = {
+        "Attack Boost": 0,
+        "Critical Eye": 0,
+        "Maximum Might": 0,
+        "Weakness Exploit": 0,
+        "Critical Boost": 0,
+        "Resuscitate": 0,
+        "Resentment": 0,
+        "Dragonheart": 0,
+        "Level 2 slots": 0,
+    }
+
+    a = 2
+
+    def __add__ (self,other):
+       return( self.a + other.a)
+
+
+
+
 def parseini(file):
     # TODO: Validate inputs
     config = configparser.ConfigParser()
@@ -102,12 +123,49 @@ def affinitymod(skills, rawaffinity):
 def totalefr(skills, weapon):
     return math.floor(weapon["sharpness"] * rawattack(skills, weapon) * affinitymod(skills, weapon["Raw Affinity"]))
 
+sample = skilltable()
 
+'''
+def searchskillset(spareskills,skillsetindex):
+    #If all skill slots are used up, return immediately.
+    #result is a list of skilltables
+    if spareskills == 0:
+        return None
+
+    #if the skillsetindex is now a greater value the list of valid skills, return immediately.
+    if skillsetindex > numberofvalid skills:
+        return None
+
+
+
+    #If skill slots are not 0, call spareskills on the next skill in the queue.
+    result =[]
+    for i in range(spareskills+1):
+        possibleresult = searchskillset()
+
+        if possibleresult
+
+        result.extend(searchskillset(result)
+'''
+
+'''
+def optimizeefr(skills,weapon):
+    #First step: produce a list of dictionaries containing all possible skills.
+    #Skills will be formatted as shown in the parseini file.
+
+    possibleskills, skillboosts = allpossibleskills(skills,weapon)
+
+'''
 def main(args):
     skills, weapon = parseini(args.file)
 
     print("The effective raw damage of the build is:")
     print(totalefr(skills, weapon))
+
+    if ((args.optimize == 'y') and (skills["Level 2 slots"] > 0)):
+        print("Optimizing DPS with spare level 2 skill slots...")
+
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Tool for Calculating Effective Raw for Monster Hunter Rise')

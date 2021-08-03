@@ -1,4 +1,4 @@
-This is a tool designed to calculate dps for Monster Hunter Rise
+This is a tool designed to calculate damage per second (dps) for the videogame Monster Hunter Rise based on the skills and weapon that the player has equiped. 
 
 ## Installation Instructions:
  * Install Python 3.* from here: https://www.python.org/
